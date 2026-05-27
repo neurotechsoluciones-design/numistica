@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presupuesto Comercial | Mundo Billete x NeuroTech Soluciones</title>
+  <meta name="description" content="Presupuesto comercial para Mundo Billete: WhatsApp Business, tienda online, catálogo digital, pagos y capacitación." />
+  <meta property="og:title" content="Presupuesto Comercial | Mundo Billete" />
+  <meta property="og:description" content="Propuesta clara para ordenar ventas, mostrar productos y comenzar a vender online." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --nt-blue:#0B213A;
+      --nt-blue-2:#102D4A;
+      --nt-blue-dark:#061521;
+      --nt-gold:#C8A75A;
+      --ink:#0B213A;
+      --muted:#657487;
+      --paper:#ffffff;
+      --soft:#F5F8FA;
+      --line:rgba(11,33,58,.08);
+      --glass:rgba(255,255,255,.72);
+      --shadow:0 26px 70px rgba(11,33,58,.11);
+      --radius:28px;
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(11,33,58,.08), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(200,167,90,.10), transparent 26%),
+        linear-gradient(180deg,#fbfcff 0%,#f4f7fa 48%,#ffffff 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+
+    .noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.15;
+      z-index:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+      mix-blend-mode:multiply;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+      background:rgba(255,255,255,.74);
+      border-bottom:1px solid rgba(11,33,58,.055);
+    }
+    .nav-inner{
+      max-width:1240px;
+      margin:auto;
+      padding:14px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.03em}
+    .brand-mark{
+      width:38px;height:38px;border-radius:13px;
+      background:linear-gradient(135deg,var(--nt-blue),#163451 70%,var(--nt-gold));
+      box-shadow:0 10px 24px rgba(11,33,58,.12);
+    }
+    .nav-links{display:flex;gap:18px;font-size:14px;color:var(--muted);align-items:center}
+    .nav-links a{text-decoration:none}
+    .nav-links a:hover{color:var(--nt-blue)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      background:rgba(11,33,58,.08);color:var(--nt-blue);font-weight:800;font-size:13px;border:1px solid rgba(11,33,58,.06)
+    }
+
+    .hero{position:relative;z-index:2;max-width:1720px;margin:0 auto;padding:0 0 34px}
+    .hero-shell{width:100%;overflow:hidden;background:var(--nt-blue);box-shadow:var(--shadow)}
+    .hero-mosaic{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:minmax(330px, 43vh) minmax(330px, 43vh);
+      min-height:660px;
+      background:var(--nt-blue);
+    }
+    .hero-tile{position:relative;overflow:hidden;min-height:330px}
+    .hero-image{background:#0A111C}
+    .hero-image img{
+      width:100%;height:116%;object-fit:cover;display:block;
+      transform:translate3d(0,-4%,0) scale(1.04);
+      will-change:transform;filter:saturate(.96) contrast(1.04);
+    }
+    .hero-text{
+      padding:clamp(34px,4.6vw,68px) clamp(30px,5.2vw,84px);
+      color:#fff;
+      background:
+        radial-gradient(circle at 86% 14%, rgba(200,167,90,.12), transparent 26%),
+        linear-gradient(135deg,#061521,#0B213A 72%,#163451);
+      display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    }
+    .hero-text.light{
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255,255,255,.12), transparent 24%),
+        linear-gradient(135deg,#071928,#0B213A 70%,#102D4A);
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.10);color:rgba(255,255,255,.88);font-weight:850;font-size:13px;
+      border:1px solid rgba(255,255,255,.16);margin-bottom:26px;
+    }
+    .hero-title{
+      margin:0;
+      font-family:var(--serif);
+      font-weight:500;
+      font-size:clamp(34px,4.2vw,60px);
+      line-height:.98;
+      letter-spacing:-.045em;
+      color:#fff;
+      max-width:720px;
+    }
+    .hero-copy-title{
+      margin:0;
+      font-size:clamp(32px,4vw,58px);
+      line-height:.94;
+      letter-spacing:-.065em;
+      color:#fff;
+      max-width:720px;
+    }
+    .hero-text p{margin:24px 0 0;color:rgba(255,255,255,.86);font-size:clamp(16px,1.28vw,20px);line-height:1.48;max-width:690px}
+    .hero-date{margin-top:28px;color:rgba(255,255,255,.62);font-size:14px;line-height:1.5}
+    .btn{
+      display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:52px;padding:15px 22px;border-radius:999px;
+      font-weight:850;text-decoration:none;border:1px solid rgba(11,33,58,.07);
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      cursor:pointer;
+    }
+    .hero-text .btn{margin-top:30px;background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.18);box-shadow:none}
+    .hero-text .btn:hover{background:rgba(255,255,255,.24);transform:translateY(-2px)}
+    .btn-primary{background:var(--nt-blue);color:#fff;box-shadow:0 14px 28px rgba(11,33,58,.18)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(11,33,58,.22)}
+    .btn-ghost{background:rgba(255,255,255,.72);color:var(--nt-blue)}
+    .btn-ghost:hover{transform:translateY(-3px);background:#fff}
+    .parallax-layer{will-change:transform;transition:transform .08s linear}
+
+    .main{position:relative;z-index:3;max-width:1180px;margin:auto;padding:44px 22px 94px}
+    .section{margin-top:62px}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+    .section-title h2{margin:0;font-size:clamp(34px,4vw,56px);line-height:.98;letter-spacing:-.058em}
+    .section-title p{max-width:560px;color:var(--muted);font-size:17px;line-height:1.52;margin:0}
+    .glass-panel{background:var(--glass);border:1px solid rgba(255,255,255,.46);border-radius:var(--radius);box-shadow:0 16px 46px rgba(11,33,58,.075);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+
+    .intro-card{
+      padding:34px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      align-items:center;
+    }
+    .intro-card h2{font-size:42px;line-height:1;letter-spacing:-.055em;margin:0 0 14px}
+    .intro-card p{color:var(--muted);line-height:1.65;margin:0;font-size:17px}
+    .intro-note{padding:24px;border-radius:22px;background:rgba(11,33,58,.055);border:1px solid rgba(11,33,58,.06)}
+    .intro-note strong{display:block;font-size:18px;letter-spacing:-.025em;margin-bottom:8px;color:var(--nt-blue)}
+
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .package{position:relative;padding:28px;overflow:hidden;transition:transform .25s ease, border-color .25s ease}
+    .package:hover{transform:translateY(-6px);border-color:rgba(11,33,58,.22)}
+    .package.featured{background:rgba(255,255,255,.94);border:1px solid rgba(11,33,58,.20);box-shadow:0 24px 64px rgba(11,33,58,.12)}
+    .badge{display:inline-flex;width:max-content;padding:8px 12px;border-radius:999px;background:rgba(200,167,90,.24);color:#6E5420;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;border:1px solid rgba(200,167,90,.22)}
+    .package h3{font-size:26px;letter-spacing:-.045em;margin:20px 0 8px;line-height:1.05}
+    .price{margin:16px 0 6px;font-size:38px;font-weight:950;letter-spacing:-.055em}
+    .price small{font-size:14px;color:var(--muted);font-weight:850;letter-spacing:0}
+    .package p{color:var(--muted);line-height:1.55;margin:0 0 18px}
+    .package ul{padding:0;margin:20px 0 26px;list-style:none;display:grid;gap:10px;color:#33485A}
+    .package li{display:flex;gap:10px;line-height:1.35}
+    .check{color:var(--nt-blue);font-weight:950}
+    .payment-box{padding:16px;border-radius:18px;background:rgba(11,33,58,.055);border:1px solid rgba(11,33,58,.06);color:#24394D;font-size:14px;line-height:1.45}
+    .recommended-ribbon{position:absolute;right:22px;top:22px;background:var(--nt-blue);color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;box-shadow:0 10px 26px rgba(11,33,58,.18)}
+
+    .comparison-wrap{overflow-x:auto;border-radius:24px}
+    .table{width:100%;min-width:720px;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:22px;border:1px solid rgba(11,33,58,.055);background:rgba(255,255,255,.72)}
+    .table th,.table td{padding:17px 18px;text-align:left;border-bottom:1px solid rgba(11,33,58,.045);vertical-align:top}
+    .table th{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:rgba(11,33,58,.025)}
+    .table tr:last-child td{border-bottom:0}
+    .table .highlight-row{background:rgba(200,167,90,.12)}
+    .table td:last-child{font-weight:900;color:var(--nt-blue)}
+
+    .image-lab{display:grid;gap:18px;align-items:stretch}
+    .lab-copy{padding:34px;background:linear-gradient(135deg,#061521,#0B213A 72%,#163451);color:#fff;overflow:hidden;position:relative}
+    .lab-copy:after{content:"";position:absolute;right:-90px;top:-80px;width:240px;height:240px;border-radius:999px;background:rgba(200,167,90,.30);filter:blur(18px)}
+    .lab-copy h3{position:relative;margin:0 0 14px;font-size:38px;line-height:1;letter-spacing:-.055em}
+    .lab-copy p{position:relative;margin:0;color:rgba(255,255,255,.82);font-size:17px;line-height:1.6;max-width:920px}
+    .lab-list{position:relative;margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .lab-item{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:14px;line-height:1.45;color:rgba(255,255,255,.88)}
+    .gallery-board{
+      position:relative;
+      padding:clamp(18px,3vw,30px);
+      background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.68));
+      overflow:hidden;
+    }
+    .gallery-board:before{
+      content:"";
+      position:absolute;
+      inset:-90px -70px auto auto;
+      width:260px;
+      height:260px;
+      border-radius:999px;
+      background:rgba(200,167,90,.20);
+      filter:blur(28px);
+      pointer-events:none;
+    }
+    .premium-carousel{
+      position:relative;
+      min-height:clamp(360px,52vw,560px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      perspective:1400px;
+      overflow:hidden;
+      border-radius:26px;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(11,33,58,.10), transparent 36%),
+        linear-gradient(180deg,#F8FAFC,#EDF2F6);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.88);
+    }
+    .premium-carousel-track{
+      position:relative;
+      width:100%;
+      height:clamp(330px,49vw,520px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .sample-card{
+      position:absolute;
+      width:clamp(250px,37vw,490px);
+      aspect-ratio:4/3;
+      border-radius:30px;
+      overflow:hidden;
+      background:#F4F6F8;
+      box-shadow:0 24px 64px rgba(11,33,58,.16);
+      border:1px solid rgba(255,255,255,.72);
+      transition:transform .58s cubic-bezier(.2,.78,.2,1), opacity .42s ease, filter .42s ease, box-shadow .42s ease;
+      will-change:transform, opacity;
+      opacity:0;
+      pointer-events:none;
+    }
+    .sample-card img{width:100%;height:100%;object-fit:contain;display:block;padding:clamp(14px,2vw,22px);background:#F4F6F8}
+    .sample-card.is-active{
+      opacity:1;
+      transform:translate3d(0,0,80px) rotateY(0deg) scale(1);
+      z-index:6;
+      filter:saturate(1.02) contrast(1.03);
+      pointer-events:auto;
+      box-shadow:0 34px 82px rgba(11,33,58,.22);
+    }
+    .sample-card.is-prev{
+      opacity:.58;
+      transform:translate3d(clamp(-260px,-27vw,-150px),10px,-60px) rotateY(22deg) scale(.82);
+      z-index:4;
+      filter:saturate(.88) contrast(.96) blur(.2px);
+    }
+    .sample-card.is-next{
+      opacity:.58;
+      transform:translate3d(clamp(150px,27vw,260px),10px,-60px) rotateY(-22deg) scale(.82);
+      z-index:4;
+      filter:saturate(.88) contrast(.96) blur(.2px);
+    }
+    .sample-card.is-far-prev{
+      opacity:.20;
+      transform:translate3d(clamp(-430px,-43vw,-240px),22px,-150px) rotateY(32deg) scale(.66);
+      z-index:2;
+      filter:blur(1.6px) saturate(.78);
+    }
+    .sample-card.is-far-next{
+      opacity:.20;
+      transform:translate3d(clamp(240px,43vw,430px),22px,-150px) rotateY(-32deg) scale(.66);
+      z-index:2;
+      filter:blur(1.6px) saturate(.78);
+    }
+    .carousel-nav{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 clamp(10px,2.4vw,28px);
+      pointer-events:none;
+      z-index:12;
+    }
+    .carousel-arrow{
+      width:clamp(44px,5vw,58px);
+      height:clamp(44px,5vw,58px);
+      border-radius:999px;
+      border:1px solid rgba(11,33,58,.10);
+      background:rgba(255,255,255,.78);
+      color:var(--nt-blue);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      box-shadow:0 16px 34px rgba(11,33,58,.13);
+      cursor:pointer;
+      pointer-events:auto;
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      line-height:1;
+      transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .carousel-arrow:hover{transform:translateY(-2px) scale(1.03);background:#fff;box-shadow:0 20px 44px rgba(11,33,58,.18)}
+    .carousel-dots{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      margin-top:18px;
+    }
+    .carousel-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      border:0;
+      padding:0;
+      background:rgba(11,33,58,.18);
+      cursor:pointer;
+      transition:width .25s ease, background .25s ease;
+    }
+    .carousel-dot.is-active{width:26px;background:var(--nt-blue)}
+
+    .module-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .tech-card{padding:22px;min-height:184px}
+    .tech-card span{display:inline-flex;width:42px;height:42px;border-radius:15px;align-items:center;justify-content:center;background:rgba(11,33,58,.09);color:var(--nt-blue);font-weight:950;margin-bottom:16px}
+    .tech-card h3{margin:0 0 8px;font-size:18px;letter-spacing:-.025em}
+    .tech-card p{margin:0;color:var(--muted);line-height:1.45;font-size:14px}
+    .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .scope-grid .glass-panel{padding:30px}
+    .scope-grid h3{font-size:24px;margin:0 0 14px;letter-spacing:-.04em}
+    .module{padding:30px}
+    .module h3{font-size:26px;margin:0 0 12px;letter-spacing:-.04em}
+    .module p{color:var(--muted);line-height:1.6;margin:0 0 18px}
+    .list-clean{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+    .list-clean li{display:flex;gap:10px;align-items:flex-start;color:#33485A;line-height:1.45}
+    .dot{width:9px;height:9px;border-radius:50%;margin-top:8px;flex:0 0 auto;background:linear-gradient(135deg,var(--nt-blue),var(--nt-gold))}
+
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{padding:24px;position:relative;overflow:hidden}
+    .step:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(180deg,var(--nt-blue),var(--nt-gold));opacity:.45}
+    .step strong{display:block;color:var(--nt-blue);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .step h3{margin:0 0 10px;font-size:20px;letter-spacing:-.03em}
+    .step p{margin:0;color:var(--muted);line-height:1.45;font-size:14px}
+
+    .recommendation{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px;align-items:stretch}
+    .recommend-card{padding:34px;color:#fff;background:radial-gradient(circle at 90% 15%, rgba(200,167,90,.28), transparent 28%),linear-gradient(135deg,#061521,#0B213A 72%,#163451);border-radius:var(--radius);box-shadow:0 20px 52px rgba(11,33,58,.16);overflow:hidden;position:relative}
+    .recommend-card h2{font-size:44px;line-height:.98;letter-spacing:-.06em;margin:0 0 18px}
+    .recommend-card p{color:rgba(255,255,255,.82);line-height:1.6;margin:0 0 22px}
+    .quote-card{padding:34px;display:flex;flex-direction:column;justify-content:center}
+    .quote-card blockquote{margin:0;font-size:30px;line-height:1.18;letter-spacing:-.045em;font-weight:850}
+    .quote-card p{color:var(--muted);line-height:1.6;font-size:16px;margin:20px 0 0}
+
+    .footer{max-width:1180px;margin:0 auto 34px;padding:0 22px;color:var(--muted);font-size:14px}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;border-top:1px solid rgba(11,33,58,.055);padding-top:22px}
+
+    .hero-image:first-child{animation:slideInLeft .9s cubic-bezier(.2,.8,.2,1) both}
+    .hero-mosaic .hero-text:nth-child(2){animation:slideInRight .9s cubic-bezier(.2,.8,.2,1) both .08s}
+    .hero-mosaic .hero-text:nth-child(3){animation:slideInLeft .9s cubic-bezier(.2,.8,.2,1) both .16s}
+    .hero-image:last-child{animation:slideInRight .9s cubic-bezier(.2,.8,.2,1) both .24s}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes slideInRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:translateX(0)}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease, transform .75s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media (max-width:1040px){
+      .hero-mosaic{grid-template-columns:1fr;grid-template-rows:auto;min-height:auto}
+      .hero-tile{min-height:300px}
+      .hero-image{min-height:360px}
+      .hero-title{font-size:clamp(34px,8vw,54px)}
+      .hero-copy-title{font-size:clamp(32px,8vw,52px)}
+      .hero-text p{font-size:16px}
+      .intro-card,.recommendation{grid-template-columns:1fr}
+      .packages,.timeline{grid-template-columns:1fr}
+      .tech-grid,.scope-grid{grid-template-columns:1fr 1fr}
+      .module-grid{grid-template-columns:1fr}
+      .tech-grid,.scope-grid{grid-template-columns:1fr}
+      .lab-list{grid-template-columns:1fr 1fr}
+      .section-title{display:block}
+      .section-title p{margin-top:14px}
+      .nav-links{display:none}
+    }
+    @media (max-width:680px){
+      .hero{padding:0 0 18px}
+      .hero-shell{border-radius:0}
+      .hero-text{padding:32px 22px}
+      .hero-image{min-height:280px}
+      .hero-image img{height:110%}
+      .hero-title,.hero-copy-title{letter-spacing:-.045em}
+      .main{padding:24px 14px 70px}
+      .intro-card,.module,.lab-copy,.quote-card,.recommend-card{padding:24px}
+      .lab-list{grid-template-columns:1fr}
+      .premium-carousel{min-height:390px}
+      .premium-carousel-track{height:350px}
+      .sample-card{width:78vw;border-radius:24px}
+      .sample-card.is-prev{transform:translate3d(-44vw,12px,-70px) rotateY(24deg) scale(.74);opacity:.38}
+      .sample-card.is-next{transform:translate3d(44vw,12px,-70px) rotateY(-24deg) scale(.74);opacity:.38}
+      .sample-card.is-far-prev,.sample-card.is-far-next{opacity:0}
+      .footer-inner{display:block}
+      .recommended-ribbon{position:static;margin-bottom:12px;width:max-content}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>NeuroTech Soluciones</span>
+      </div>
+      <div class="nav-links" aria-label="Navegación principal">
+        <a href="#propuesta">Propuesta</a>
+        <a href="#planes">Planes</a>
+        <a href="#imagenes">Imágenes</a>
+        <a href="#adicionales">Adicionales</a>
+        <a href="#cierre">Recomendación</a>
+      </div>
+      <span class="pill">Mundo Billete</span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-shell">
+      <section class="hero-mosaic" aria-label="Presupuesto para Mundo Billete">
+        <article class="hero-tile hero-image">
+          <img class="parallax-layer" data-speed="0.10" src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/billete.jpg" alt="Billete de colección presentado con estética premium" loading="eager" />
+        </article>
+
+        <article class="hero-tile hero-text">
+          <span class="eyebrow">Presupuesto comercial 2026</span>
+          <h1 class="hero-title">Diego, esta es la propuesta para llevar Mundo Billete a una venta digital más ordenada.</h1>
+          <p>La idea es avanzar por etapas: primero ordenar la atención y el catálogo, después publicar una tienda inicial profesional y, cuando tenga sentido comercial, sumar más productos, contenido y subastas.</p>
+          <a class="btn" href="#planes">Ver planes y valores</a>
+          <div class="hero-date">Emitido: <strong id="fechaHoy"></strong> · Vigencia sugerida: <strong id="fechaVigencia"></strong></div>
+        </article>
+
+        <article class="hero-tile hero-text light">
+          <h2 class="hero-copy-title">Una tienda clara, visual y pensada para coleccionistas.</h2>
+          <p>Billetes y monedas necesitan verse bien, encontrarse rápido y consultarse fácil. Por eso la propuesta combina catálogo, pagos, WhatsApp Business, imágenes y capacitación.</p>
+        </article>
+
+        <article class="hero-tile hero-image">
+          <img class="parallax-layer" data-speed="0.07" src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/moneda.jpg" alt="Moneda de colección presentada con iluminación premium" loading="lazy" />
+        </article>
+      </section>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section reveal" id="propuesta">
+      <div class="intro-card glass-panel">
+        <div>
+          <h2>Qué buscamos resolver en esta primera etapa</h2>
+          <p>La propuesta está pensada para que puedas vender de forma más ordenada sin cargar todo el inventario de entrada. Empezamos con una base simple de administrar, productos seleccionados, integración con WhatsApp, medios de pago y capacitación para que puedas continuar cargando piezas con criterio visual y comercial.</p>
+        </div>
+        <div class="intro-note">
+          <strong>Recomendación de NeuroTech</strong>
+          <p>Comenzar con el Plan Recomendado. Es el punto justo entre inversión, orden comercial y posibilidad real de empezar a vender online sin hacer el proyecto más pesado de lo necesario.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="planes">
+      <div class="section-title">
+        <h2>Planes de implementación</h2>
+        <p>Tres alternativas claras para elegir hasta dónde avanzar ahora. La opción recomendada es la tienda inicial, porque ya deja Mundo Billete vendiendo online.</p>
+      </div>
+      <div class="packages">
+        <article class="package glass-panel">
+          <span class="badge">Plan 1</span>
+          <h3>WhatsApp Business + capacitación para vender mejor</h3>
+          <p>Un primer sistema comercial para que Mundo Billete responda más rápido, ordene interesados, muestre mejor sus billetes y monedas, y empiece a generar contenido simple que ayude a vender y posicionarse.</p>
+
+          <div class="price">$280.000 <small>ARS</small></div>
+
+          <ul>
+            <li><span class="check">✓</span><span>Configuración de WhatsApp Business como canal comercial principal.</span></li>
+            <li><span class="check">✓</span><span>Perfil comercial, mensajes automáticos, respuestas rápidas y etiquetas para no perder consultas ni pedidos.</span></li>
+            <li><span class="check">✓</span><span>Catálogo inicial en WhatsApp para mostrar piezas seleccionadas con fotos, datos, precios y descripciones claras.</span></li>
+            <li><span class="check">✓</span><span>Capacitación de 6 encuentros de 1 hora, enfocada en vender más y mostrar mejor el inventario.</span></li>
+            <li><span class="check">✓</span><span>Clase 1: WhatsApp Business para responder más rápido, encontrar interesados y seguir pedidos.</span></li>
+            <li><span class="check">✓</span><span>Clase 2: catálogo que facilita la compra con fotos, datos claros, precios y descripciones simples.</span></li>
+            <li><span class="check">✓</span><span>Clase 3: fotos de billetes y monedas que aumentan confianza y transmiten más valor.</span></li>
+            <li><span class="check">✓</span><span>Clase 4: imágenes listas para WhatsApp, redes y futura tienda online.</span></li>
+            <li><span class="check">✓</span><span>Clase 5: videos cortos para mostrar piezas, rarezas e historias que generen consultas.</span></li>
+            <li><span class="check">✓</span><span>Clase 6: rutina simple de contenido para ganar presencia y posicionarse como referente numismático.</span></li>
+          </ul>
+
+          <div class="payment-box">
+            <strong>Forma de pago:</strong><br>
+            50% al iniciar: $140.000<br>
+            50% al finalizar: $140.000
+          </div>
+        </article>
+
+        <article class="package glass-panel featured">
+          <div class="recommended-ribbon">Recomendado</div>
+          <span class="badge">Plan 2</span>
+          <h3>Tienda online inicial + pagos + capacitación</h3>
+          <p>Para empezar a vender online con una tienda profesional, catálogo administrable, productos seleccionados, WhatsApp y Mercado Pago.</p>
+          <div class="price">$950.000 <small>ARS</small></div>
+          <ul>
+            <li><span class="check">✓</span><span>Incluye todo lo del Plan 1.</span></li>
+            <li><span class="check">✓</span><span>Tienda online administrable.</span></li>
+            <li><span class="check">✓</span><span>Inicio, tienda, producto, carrito, checkout y contacto.</span></li>
+            <li><span class="check">✓</span><span>Categorías iniciales para billetes y monedas.</span></li>
+            <li><span class="check">✓</span><span>Buscador e integración con WhatsApp.</span></li>
+            <li><span class="check">✓</span><span>Mercado Pago configurado.</span></li>
+            <li><span class="check">✓</span><span>Precios en dólares y en pesos.</span></li>
+            <li><span class="check">✓</span><span>Carga inicial de hasta 50 productos.</span></li>
+            <li><span class="check">✓</span><span>Capacitación para cargar productos e imágenes.</span></li>
+            <li><span class="check">✓</span><span>Incluye 1 encuentro de capacitación de 1 hora para uso básico de la tienda.</span></li>
+          </ul>
+          <div class="payment-box"><strong>Forma de pago</strong><br>3 pagos: $350.000 + $350.000 + $250.000<br>6 cuotas: $180.000, total $1.080.000</div>
+        </article>
+
+        <article class="package glass-panel">
+          <span class="badge">Plan 3</span>
+          <h3>Sistema comercial automatizado</h3>
+          <p>Para que Mundo Billete no solo tenga una tienda online, sino un sistema comercial más ordenado: catálogo mejor filtrado, pagos más claros, formularios, consultas mejor dirigidas y una base preparada para incorporar automatización.</p>
+          <div class="price">$1.350.000 <small>ARS</small></div>
+          <ul>
+            <li><span class="check">✓</span><span>Incluye todo lo del Plan 2.</span></li>
+            <li><span class="check">✓</span><span>Catálogo mejor estructurado con filtros por billetes, monedas, país, año, estado, precio y disponibilidad.</span></li>
+            <li><span class="check">✓</span><span>Mercado Pago, PayPal y estructura preparada para pagos internacionales.</span></li>
+            <li><span class="check">✓</span><span>Precios en dólares y en pesos.</span></li>
+            <li><span class="check">✓</span><span>Formularios de consulta para pedidos, piezas específicas, compras mayoristas o clientes del exterior.</span></li>
+            <li><span class="check">✓</span><span>Base preparada para automatizar respuestas frecuentes, seguimiento de pedidos y segmentación de clientes.</span></li>
+            <li><span class="check">✓</span><span>Capacitación para operar el sistema comercial, no solo para cargar productos.</span></li>
+            <li><span class="check">✓</span><span>Incluye 2 encuentros de capacitación de 1 hora para operación, consultas y seguimiento.</span></li>
+          </ul>
+          <div class="payment-box"><strong>Forma de pago</strong><br>3 pagos: $500.000 + $450.000 + $400.000<br>6 cuotas: $255.000, total $1.530.000</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-title">
+        <h2>Comparación rápida</h2>
+        <p>Para que la decisión sea simple: el Plan 1 ordena la atención, el Plan 2 permite vender online y el Plan 3 suma más profundidad de catálogo.</p>
+      </div>
+      <div class="comparison-wrap glass-panel">
+        <table class="table" aria-label="Comparación de planes">
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Incluye</th>
+              <th>Inversión</th>
+              <th>Conviene si querés</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Plan 1</strong></td>
+              <td>WhatsApp Business, respuestas, etiquetas, catálogo inicial y capacitación.</td>
+              <td>$280.000</td>
+              <td>Ordenar la atención sin tienda online.</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Plan 2</strong></td>
+              <td>Tienda online, carrito, pagos, WhatsApp, 50 productos y capacitación.</td>
+              <td>$950.000</td>
+              <td>Empezar a vender online con una base clara.</td>
+            </tr>
+            <tr>
+              <td><strong>Plan 3</strong></td>
+              <td>Sistema comercial, PayPal, filtros, formularios y base preparada para automatización.</td>
+              <td>$1.350.000</td>
+              <td>Avanzar hacia una operación más ordenada y automatizada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section reveal" id="imagenes">
+      <div class="section-title">
+        <h2>Muestra visual: cómo podrían verse tus billetes y monedas con un sistema de contenido profesional</h2>
+        <p>Estas imágenes funcionan como referencia del resultado que podés aprender a producir: fotos más limpias, mejor iluminación, composición de catálogo y archivos optimizados para web, redes sociales y WhatsApp Business.</p>
+      </div>
+      <div class="image-lab">
+        <div class="gallery-board glass-panel">
+          <div class="premium-carousel" aria-label="Galería premium de billetes y monedas mejoradas">
+            <div class="premium-carousel-track">
+              <div class="sample-card is-active"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/billete1.png" alt="Billete muestra 1" loading="lazy" width="900" height="675"></div>
+              <div class="sample-card is-next"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/billete2.png" alt="Billete muestra 2" loading="lazy" width="900" height="675"></div>
+              <div class="sample-card is-far-next"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/billete3.png" alt="Billete muestra 3" loading="lazy" width="900" height="675"></div>
+              <div class="sample-card"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/moneda1.png" alt="Moneda muestra 1" loading="lazy" width="900" height="675"></div>
+              <div class="sample-card is-far-prev"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/moneda2.png" alt="Moneda muestra 2" loading="lazy" width="900" height="675"></div>
+              <div class="sample-card is-prev"><img src="https://raw.githubusercontent.com/neurotechsoluciones-design/numistica/main/moneda3.png" alt="Moneda muestra 3" loading="lazy" width="900" height="675"></div>
+            </div>
+            <div class="carousel-nav" aria-hidden="false">
+              <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Imagen anterior">‹</button>
+              <button class="carousel-arrow" type="button" data-carousel-next aria-label="Imagen siguiente">›</button>
+            </div>
+          </div>
+          <div class="carousel-dots" aria-label="Selector de imágenes"></div>
+        </div>
+        <div class="lab-copy glass-panel">
+          <h3>Contenido visual que vende y también posiciona.</h3>
+          <p>La imagen no solo sirve para cargar productos en la tienda. También puede convertirse en contenido para redes, videos cortos, publicaciones educativas, cobertura de eventos y piezas de autoridad para que Mundo Billete sea visto como referente del nicho.</p>
+          <div class="lab-list">
+            <div class="lab-item"><strong>01</strong><span>Fondo limpio, buena luz y enfoque.</span></div>
+            <div class="lab-item"><strong>02</strong><span>Recorte parejo para todo el catálogo.</span></div>
+            <div class="lab-item"><strong>03</strong><span>Compresión en WebP o JPG optimizado.</span></div>
+            <div class="lab-item"><strong>04</strong><span>Nombres de archivo ordenados por producto.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contenido">
+      <div class="section-title">
+        <h2>Mentoría en contenido y posicionamiento</h2>
+        <p>Además de la tienda, podemos trabajar una mentoría práctica para que puedas producir contenido propio y posicionar a Mundo Billete como referente numismático.</p>
+      </div>
+      <div class="intro-card glass-panel">
+        <div>
+          <h2>Formato de la mentoría</h2>
+          <p>La mentoría se realiza con encuentros de 1 hora semanal. La duración recomendada es de 4 semanas, con un total de 4 horas de capacitación práctica. El objetivo no es solo aprender herramientas, sino salir con un método simple para crear contenido útil para redes, YouTube, WhatsApp Business y la tienda.</p>
+        </div>
+        <div class="intro-note">
+          <strong>Duración recomendada</strong>
+          <p>4 semanas · 1 encuentro semanal · 1 hora por encuentro · 4 horas totales de mentoría.</p>
+        </div>
+      </div>
+      <div class="tech-grid" style="margin-top:18px">
+        <article class="tech-card glass-panel">
+          <span>01</span>
+          <h3>Semana 1 · Fotografía numismática</h3>
+          <p>Fondo, luz, enfoque, encuadre, proporción real de la pieza, toma con celular y criterios para billetes y monedas.</p>
+        </article>
+        <article class="tech-card glass-panel">
+          <span>02</span>
+          <h3>Semana 2 · Imágenes para catálogo</h3>
+          <p>Recorte, mejora básica, compresión, formato WebP o JPG optimizado, nombres de archivo y carga correcta en tienda.</p>
+        </article>
+        <article class="tech-card glass-panel">
+          <span>03</span>
+          <h3>Semana 3 · Videos cortos y YouTube</h3>
+          <p>Ideas de contenido, estructura de guiones, reels, shorts, videos explicativos y edición simple desde el celular.</p>
+        </article>
+        <article class="tech-card glass-panel">
+          <span>04</span>
+          <h3>Semana 4 · IA y calendario de contenido</h3>
+          <p>Uso de IA para títulos, guiones, descripciones, ideas de publicaciones, calendario mensual y adaptación del contenido a cada canal.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section module-grid reveal" id="adicionales">
+      <div class="module glass-panel">
+        <h3>Adicional disponible: mentoría de contenido</h3>
+        <p>Si querés trabajar también el posicionamiento de Mundo Billete como marca y referente, se puede sumar una mentoría práctica de 4 semanas.</p>
+        <ul class="list-clean">
+          <li><span class="dot"></span><span>1 encuentro semanal de 1 hora.</span></li>
+          <li><span class="dot"></span><span>4 semanas de trabajo, 4 horas totales.</span></li>
+          <li><span class="dot"></span><span>Fotografía, catálogo, videos cortos, YouTube e IA aplicada al contenido.</span></li>
+          <li><span class="dot"></span><span>Resultado esperado: método simple para producir contenido propio de forma constante.</span></li>
+        </ul>
+      </div>
+      <div class="module glass-panel">
+        <h3>Subastas online: segunda etapa</h3>
+        <p>La plataforma de subastas no conviene mezclarla con la primera tienda. Es mejor validarla después, como una etapa separada.</p>
+        <ul class="list-clean">
+          <li><span class="dot"></span><span>Primero: tienda online, catálogo inicial y pagos.</span></li>
+          <li><span class="dot"></span><span>Después: más productos y mejora del proceso de venta.</span></li>
+          <li><span class="dot"></span><span>Más adelante: subastas con reglas, lotes, tiempos y comisiones.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="hosting">
+      <div class="section-title">
+        <h2>Hosting y dominio</h2>
+        <p>El hosting y el dominio no están incluidos en el valor de implementación. Deben ser contratados y abonados directamente por Diego, a su nombre, para conservar la titularidad y el control de su tienda.</p>
+      </div>
+      <div class="scope-grid">
+        <div class="glass-panel">
+          <h3>Opciones recomendadas</h3>
+          <ul class="list-clean">
+            <li><span class="dot"></span><span><strong>DonWeb WooCommerce:</strong> desde $2.800 ARS/mes aprox. Opción económica para empezar, aunque puede quedar limitada si el catálogo crece mucho.</span></li>
+            <li><span class="dot"></span><span><strong>Hostinger WooCommerce:</strong> desde $5.399 ARS/mes aprox. Buena relación precio/capacidad.</span></li>
+            <li><span class="dot"></span><span><strong>Webempresa Medium:</strong> desde 4,75 USD/mes aprox. Opción más profesional para WordPress/WooCommerce, con mejor rendimiento y soporte.</span></li>
+          </ul>
+        </div>
+        <div class="glass-panel">
+          <h3>Recomendación para Mundo Billete</h3>
+          <p style="color:var(--muted);line-height:1.65;margin:0 0 16px">No conviene elegir solo por precio: la tienda va a trabajar con muchas imágenes, catálogo amplio, filtros, carrito y pagos. Un hosting muy básico puede hacer que la web cargue lenta, especialmente desde celular.</p>
+          <ul class="list-clean">
+            <li><span class="dot"></span><span><strong>Más equilibrada:</strong> Hostinger WooCommerce.</span></li>
+            <li><span class="dot"></span><span><strong>Más profesional:</strong> Webempresa Medium.</span></li>
+            <li><span class="dot"></span><span><strong>Más económica:</strong> DonWeb, solo si la prioridad es bajar el costo inicial.</span></li>
+          </ul>
+          <p style="color:var(--muted);line-height:1.55;margin:16px 0 0;font-size:14px">NeuroTech Soluciones acompaña la elección, contratación y configuración inicial. Los precios son estimativos y pueden variar por promociones, impuestos, renovación y tipo de cambio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-title">
+        <h2>Carga adicional y mantenimiento</h2>
+        <p>Estos valores sirven para escalar el catálogo luego de la entrega inicial, sin tener que cargar todos los productos desde el día uno.</p>
+      </div>
+      <div class="comparison-wrap glass-panel">
+        <table class="table" aria-label="Adicionales comerciales">
+          <thead>
+            <tr><th>Servicio</th><th>Detalle</th><th>Valor</th></tr>
+          </thead>
+          <tbody>            
+            <tr><td>Mantenimiento mensual opcional</td><td>Mantenimiento técnico básico, actualizaciones, copias de seguridad, ajustes de la web y recomendaciones de mejora.</td><td>$60.000/mes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-title">
+        <h2>Plan de avance sugerido</h2>
+        <p>Una implementación ordenada para que la tienda quede lista sin hacer el proceso innecesariamente pesado.</p>
+      </div>
+      <div class="timeline">
+        <article class="step glass-panel"><strong>Etapa 1</strong><h3>Orden comercial</h3><p>WhatsApp Business, mensajes, etiquetas, estructura de atención y definición de productos iniciales.</p></article>
+        <article class="step glass-panel"><strong>Etapa 2</strong><h3>Armado de tienda</h3><p>Diseño, estructura, categorías, integración de pagos, contacto y base de catálogo.</p></article>
+        <article class="step glass-panel"><strong>Etapa 3</strong><h3>Carga y pruebas</h3><p>Carga de productos incluidos, revisión de fichas, pruebas de compra y ajustes finales.</p></article>
+        <article class="step glass-panel"><strong>Etapa 4</strong><h3>Capacitación</h3><p>Entrenamiento para que puedas cargar productos, preparar imágenes y administrar consultas.</p></article>
+      </div>
+    </section>
+
+    <section class="section recommendation reveal" id="cierre">
+      <div class="recommend-card">
+        <span class="badge">Recomendación final</span>
+        <h2>Diego, te recomendamos empezar con el Plan 2.</h2>
+        <p>Es el mejor equilibrio para Mundo Billete en esta etapa: deja ordenada la atención, crea la tienda online, permite cargar productos seleccionados, integrar pagos y aprender a administrar el catálogo sin ir directo a una estructura demasiado grande.</p>
+        <a class="btn btn-ghost" href="https://wa.me/5492604087086?text=Hola%20NeuroTech,%20quiero%20avanzar%20con%20el%20Plan%202%20para%20Mundo%20Billete." target="_blank" rel="noopener">Avanzar con el Plan 2</a>
+      </div>
+      <div class="quote-card glass-panel">
+        <blockquote>Esta propuesta no es solo una página web. Es el primer paso para convertir Mundo Billete en un sistema comercial digital: atención más ordenada, catálogo más claro, pagos mejor resueltos, contenido profesional y una base preparada para automatizar.</blockquote>
+        <p>La recomendación es empezar con el Plan 2 si el objetivo principal es lanzar la tienda. Si querés avanzar hacia un sistema más automatizado, la opción correcta es el Plan 3. Las subastas deben quedar como proyecto independiente para una segunda etapa.</p>
+      </div>
+    </section>
+    <!-- En la versión final, reemplazar imágenes alojadas en GitHub Raw por imágenes optimizadas en el hosting o CDN del sitio. -->
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>NeuroTech Soluciones</strong> · Estrategia, IA y transformación digital aplicada a negocios.</div>
+      <div>San Rafael, Mendoza · @neurotech.soluciones</div>
+    </div>
+  </footer>
+
+  <script>
+    const hoy = new Date();
+    const vigencia = new Date();
+    vigencia.setDate(hoy.getDate() + 7);
+    const formato = { day:'2-digit', month:'2-digit', year:'numeric' };
+    document.getElementById('fechaHoy').textContent = hoy.toLocaleDateString('es-AR', formato);
+    document.getElementById('fechaVigencia').textContent = vigencia.toLocaleDateString('es-AR', formato);
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    const carouselCards = Array.from(document.querySelectorAll('.premium-carousel .sample-card'));
+    const dotsWrap = document.querySelector('.carousel-dots');
+    let carouselIndex = 0;
+
+    function updateCarousel(){
+      if(!carouselCards.length) return;
+      carouselCards.forEach((card, i) => {
+        const total = carouselCards.length;
+        const offset = (i - carouselIndex + total) % total;
+        card.classList.remove('is-active','is-prev','is-next','is-far-prev','is-far-next');
+        if(offset === 0) card.classList.add('is-active');
+        else if(offset === 1) card.classList.add('is-next');
+        else if(offset === 2) card.classList.add('is-far-next');
+        else if(offset === total - 1) card.classList.add('is-prev');
+        else if(offset === total - 2) card.classList.add('is-far-prev');
+      });
+      if(dotsWrap){
+        dotsWrap.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === carouselIndex);
+          dot.setAttribute('aria-current', i === carouselIndex ? 'true' : 'false');
+        });
+      }
+    }
+
+    if(carouselCards.length && dotsWrap){
+      carouselCards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Ver imagen ${i + 1}`);
+        dot.addEventListener('click', () => { carouselIndex = i; updateCarousel(); });
+        dotsWrap.appendChild(dot);
+      });
+      document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
+        carouselIndex = (carouselIndex - 1 + carouselCards.length) % carouselCards.length;
+        updateCarousel();
+      });
+      document.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
+        carouselIndex = (carouselIndex + 1) % carouselCards.length;
+        updateCarousel();
+      });
+      updateCarousel();
+    }
+
+    const parallaxItems = document.querySelectorAll('.parallax-layer');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY || window.pageYOffset;
+      parallaxItems.forEach(item => {
+        const speed = parseFloat(item.dataset.speed || '0.1');
+        item.style.transform = `translateY(${y * speed * -0.08}px)`;
+      });
+    }, { passive:true });
+  </script>
+</body>
+</html>
